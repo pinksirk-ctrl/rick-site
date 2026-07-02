@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICK - премиальная отделка интерьеров в Москве</title>
+  <meta name="description" content="RICK выполняет премиальную отделку квартир, пентхаусов и резиденций в Москве. Опыт работ в жилом комплексе Armani.">
+  <style>
+    :root {
+      --ink: #151514;
+      --graphite: #252726;
+      --paper: #fbfaf6;
+      --stone: #efeee8;
+      --mist: #d7d8cf;
+      --brass: #a57c4d;
+      --clay: #8d5f4f;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(21, 21, 20, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .page { overflow: hidden; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      right: 0;
+      color: var(--white);
+      background: rgba(21, 21, 20, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .topbar__inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 750;
+    }
+
+    .logo__mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background: var(--white);
+      border-radius: 4px;
+      font-size: 15px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    .nav a:hover { color: var(--white); }
+
+    .call-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 18px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      padding: 148px 0 72px;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(14, 15, 15, 0.94) 0%, rgba(14, 15, 15, 0.74) 38%, rgba(14, 15, 15, 0.18) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3ClinearGradient id='wall' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23333532'/%3E%3Cstop offset='.48' stop-color='%23e8e1d3'/%3E%3Cstop offset='1' stop-color='%23776759'/%3E%3C/linearGradient%3E%3ClinearGradient id='floor' x1='0' x2='1' y1='0' y2='0'%3E%3Cstop offset='0' stop-color='%23303230'/%3E%3Cstop offset='.45' stop-color='%23b49370'/%3E%3Cstop offset='1' stop-color='%23f1eee5'/%3E%3C/linearGradient%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 .16'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23wall)'/%3E%3Cpath d='M0 715h1600v285H0z' fill='url(%23floor)'/%3E%3Cpath d='M720 120h595v520H720z' fill='%23f6f2e8' opacity='.82'/%3E%3Cpath d='M755 155h235v450H755zM1020 155h260v450h-260z' fill='%232c3334' opacity='.86'/%3E%3Cpath d='M805 190h135v380H805zM1070 190h160v380h-160z' fill='%236f8585' opacity='.48'/%3E%3Cpath d='M140 215h410v465H140z' fill='%23212322' opacity='.92'/%3E%3Cpath d='M180 260h330v370H180z' fill='%23816d5b' opacity='.36'/%3E%3Cpath d='M190 685h575v92H190z' fill='%23272a28'/%3E%3Cpath d='M230 615h360c58 0 104 46 104 104v26H126v-26c0-58 46-104 104-104z' fill='%23d5cec0'/%3E%3Cpath d='M805 688h360v90H805z' fill='%23b48a5d'/%3E%3Cpath d='M845 635h280v72H845z' fill='%23eee8dc'/%3E%3Cpath d='M1195 650h155v128h-155z' fill='%23323533'/%3E%3Ccircle cx='1272' cy='596' r='52' fill='%23a47b49' opacity='.85'/%3E%3Cpath d='M0 0h1600v1000H0z' filter='url(%23grain)' opacity='.52'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero__content { position: relative; z-index: 1; width: min(760px, 100%); }
+    .eyebrow { margin: 0 0 18px; color: rgba(255, 255, 255, 0.72); font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 24px; font-size: clamp(42px, 7vw, 86px); line-height: 0.96; font-weight: 720; }
+    .hero__lead { width: min(590px, 100%); margin-bottom: 34px; color: rgba(255, 255, 255, 0.82); font-size: clamp(18px, 2vw, 23px); }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      font-weight: 680;
+      white-space: nowrap;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button--primary { color: var(--ink); background: var(--white); }
+    .button--ghost { color: var(--white); border-color: rgba(255, 255, 255, 0.28); }
+
+    .section { padding: 92px 0; }
+    .section--dark { color: var(--white); background: var(--ink); }
+    .section--stone { background: var(--stone); }
+
+    .section__head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+      gap: 56px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .section__label { margin-bottom: 14px; color: var(--brass); font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 720; }
+    h2 { margin-bottom: 0; font-size: clamp(32px, 4vw, 54px); line-height: 1.05; font-weight: 720; }
+    .section__text { margin-bottom: 0; color: rgba(21, 21, 20, 0.68); font-size: 18px; }
+    .section--dark .section__text { color: rgba(255, 255, 255, 0.68); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(21, 21, 20, 0.14); border-bottom: 1px solid rgba(21, 21, 20, 0.14); }
+    .stat { padding: 30px 26px; border-right: 1px solid rgba(21, 21, 20, 0.14); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; margin-bottom: 8px; font-size: 30px; line-height: 1; }
+    .stat span { color: rgba(21, 21, 20, 0.63); font-size: 14px; }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service { min-height: 270px; padding: 30px; border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); border-radius: 6px; }
+    .service__number { display: block; margin-bottom: 54px; color: var(--brass); font-weight: 760; }
+    .service h3 { margin-bottom: 14px; font-size: 24px; line-height: 1.15; }
+    .service p { margin-bottom: 0; color: rgba(255, 255, 255, 0.66); }
+
+    .portfolio { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: stretch; }
+    .visual {
+      min-height: 470px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      background:
+        linear-gradient(135deg, rgba(37, 39, 38, 0.08), rgba(165, 124, 77, 0.2)),
+        repeating-linear-gradient(90deg, rgba(21, 21, 20, 0.08) 0 1px, transparent 1px 84px),
+        repeating-linear-gradient(0deg, rgba(21, 21, 20, 0.06) 0 1px, transparent 1px 84px),
+        var(--mist);
+      box-shadow: var(--shadow);
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 44px;
+      border: 1px solid rgba(21, 21, 20, 0.22);
+      background:
+        linear-gradient(90deg, rgba(21, 21, 20, 0.78), rgba(21, 21, 20, 0.05)),
+        linear-gradient(140deg, transparent 0 46%, rgba(255, 255, 255, 0.72) 46% 56%, transparent 56%),
+        linear-gradient(0deg, rgba(141, 95, 79, 0.58), rgba(239, 238, 232, 0.76));
+    }
+
+    .visual::after { content: "Фото работ скоро"; position: absolute; left: 32px; bottom: 28px; color: rgba(21, 21, 20, 0.62); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+    .portfolio__panel { padding: 42px; background: var(--white); border-radius: 6px; box-shadow: var(--shadow); }
+    .portfolio__panel h3 { margin-bottom: 16px; font-size: 30px; line-height: 1.15; }
+    .portfolio__panel p { color: rgba(21, 21, 20, 0.68); }
+    .list { display: grid; gap: 14px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .list li { position: relative; padding-left: 28px; color: rgba(21, 21, 20, 0.75); }
+    .list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 12px; height: 2px; background: var(--brass); }
+
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255, 255, 255, 0.14); }
+    .step { min-height: 250px; padding: 28px; background: var(--ink); }
+    .step strong { display: block; margin-bottom: 50px; color: var(--brass); font-size: 15px; }
+    .step h3 { margin-bottom: 12px; font-size: 22px; }
+    .step p { margin-bottom: 0; color: rgba(255, 255, 255, 0.64); }
+
+    .contact { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.7fr); gap: 60px; align-items: start; }
+    .contact h2 { margin-bottom: 24px; }
+    .contact p { color: rgba(21, 21, 20, 0.68); font-size: 18px; }
+    .contact-links { display: grid; gap: 14px; }
+    .contact-link { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; border-bottom: 1px solid rgba(21, 21, 20, 0.14); font-size: 18px; }
+    .contact-link span { color: rgba(21, 21, 20, 0.52); font-size: 14px; }
+
+    .footer { padding: 30px 0; color: rgba(255, 255, 255, 0.58); background: var(--ink); font-size: 14px; }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+    @media (max-width: 900px) {
+      .topbar { position: absolute; }
+      .topbar__inner { min-height: 68px; }
+      .nav { display: none; }
+      .hero { min-height: 88vh; padding-top: 122px; }
+      .section { padding: 70px 0; }
+      .section__head, .portfolio, .contact { grid-template-columns: 1fr; gap: 30px; }
+      .stats, .services, .process { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      .call-link { display: none; }
+      .hero { min-height: auto; padding: 118px 0 56px; }
+      h1 { font-size: 44px; }
+      .button { width: 100%; }
+      .stats, .services, .process { grid-template-columns: 1fr; }
+      .stat { border-right: 0; }
+      .visual { min-height: 340px; }
+      .portfolio__panel { padding: 28px; }
+      .contact-link { display: grid; gap: 6px; }
+      .footer__inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="shell topbar__inner">
+        <a class="logo" href="#top" aria-label="RICK">
+          <span class="logo__mark">R</span>
+          <span>RICK</span>
+        </a>
+        <nav class="nav" aria-label="Навигация">
+          <a href="#about">О компании</a>
+          <a href="#services">Услуги</a>
+          <a href="#portfolio">Опыт</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <a class="call-link" href="tel:+79990094510">+7 999 009 4510</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="RICK">
+        <div class="shell">
+          <div class="hero__content">
+            <p class="eyebrow">Москва / квартиры, пентхаусы, резиденции</p>
+            <h1>Премиальная отделка интерьеров под ключ</h1>
+            <p class="hero__lead">RICK реализует спокойные, точные и статусные интерьеры с вниманием к материалам, узлам, срокам и качеству исполнения.</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="https://t.me/rikdekard">Написать в Telegram</a>
+              <a class="button button--ghost" href="#contacts">Получить консультацию</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="shell">
+          <div class="section__head">
+            <div>
+              <p class="section__label">О компании</p>
+              <h2>Отделка, в которой важна каждая линия примыкания</h2>
+            </div>
+            <p class="section__text">Мы работаем в премиальном сегменте Москвы: ведем отделочные процессы, координируем мастеров и бережно доводим интерьер до результата, который выглядит цельно в жизни, а не только на визуализации.</p>
+          </div>
+
+          <div class="stats" aria-label="Ключевые факты">
+            <div class="stat"><strong>Москва</strong><span>город работы</span></div>
+            <div class="stat"><strong>Armani</strong><span>опыт работ в жилом комплексе</span></div>
+            <div class="stat"><strong>Premium</strong><span>квартиры, пентхаусы, резиденции</span></div>
+            <div class="stat"><strong>Под ключ</strong><span>от подготовки до чистовой сдачи</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="services">
+        <div class="shell">
+          <div class="section__head">
+            <div>
+              <p class="section__label">Услуги</p>
+              <h2>Берем на себя сложную часть реализации</h2>
+            </div>
+            <p class="section__text">Подходим к отделке как к управляемому процессу: план, материалы, контроль качества, аккуратная коммуникация и финальная доводка.</p>
+          </div>
+
+          <div class="services">
+            <article class="service"><span class="service__number">01</span><h3>Премиальная отделка</h3><p>Чистовые и комплексные работы для квартир, пентхаусов и частных резиденций.</p></article>
+            <article class="service"><span class="service__number">02</span><h3>Работа с материалами</h3><p>Камень, дерево, декоративные покрытия, сложные стыки и аккуратные примыкания.</p></article>
+            <article class="service"><span class="service__number">03</span><h3>Контроль реализации</h3><p>Координация этапов, мастеров и поставок, чтобы проект двигался спокойно и предсказуемо.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--stone" id="portfolio">
+        <div class="shell">
+          <div class="portfolio">
+            <div class="visual" aria-label="Временный блок для будущих фотографий работ"></div>
+            <div class="portfolio__panel">
+              <p class="section__label">Опыт</p>
+              <h3>Работали с объектами уровня Armani</h3>
+              <p>Фотографии реализованных интерьеров можно будет добавить позже. Сейчас сайт уже готов принимать заявки и корректно показывает позиционирование RICK.</p>
+              <ul class="list">
+                <li>Премиальный жилой сегмент Москвы</li>
+                <li>Отделка квартир, пентхаусов и резиденций</li>
+                <li>Внимание к деталям, материалам и финальному качеству</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark">
+        <div class="shell">
+          <div class="section__head">
+            <div>
+              <p class="section__label">Процесс</p>
+              <h2>Прозрачный маршрут от идеи до готового интерьера</h2>
+            </div>
+            <p class="section__text">На первой консультации обсуждаем объект, ожидания, сроки и уровень отделки. После этого можно переходить к оценке и планированию работ.</p>
+          </div>
+
+          <div class="process">
+            <article class="step"><strong>01</strong><h3>Знакомство</h3><p>Обсуждаем объект, задачи и желаемый уровень результата.</p></article>
+            <article class="step"><strong>02</strong><h3>Оценка</h3><p>Формируем понимание объема, материалов, сроков и команды.</p></article>
+            <article class="step"><strong>03</strong><h3>Реализация</h3><p>Ведем отделочные этапы и контролируем качество исполнения.</p></article>
+            <article class="step"><strong>04</strong><h3>Сдача</h3><p>Проверяем детали, устраняем замечания и передаем готовое пространство.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacts">
+        <div class="shell contact">
+          <div>
+            <p class="section__label">Контакты</p>
+            <h2>Обсудим ваш объект</h2>
+            <p>Напишите или позвоните, чтобы рассказать о квартире, пентхаусе или резиденции. Удобнее всего начать с Telegram.</p>
+          </div>
+
+          <div class="contact-links">
+            <a class="contact-link" href="tel:+79990094510"><span>Телефон</span><strong>+7 999 009 4510</strong></a>
+            <a class="contact-link" href="https://t.me/rikdekard"><span>Telegram</span><strong>@rikdekard</strong></a>
+            <a class="contact-link" href="mailto:sirkxox@yandex.ru"><span>Email</span><strong>sirkxox@yandex.ru</strong></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer__inner">
+        <span>RICK, Москва</span>
+        <span>Премиальная отделка интерьеров</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
